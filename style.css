@@ -8,13 +8,33 @@
 
 body {
     font-family: "Ubuntu";
-    overflow-x: hidden;
+    overflow: hidden;
+}
+
+::selection {
+    background-color: orangered;
+    color: white;
+}
+
+select {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid orangered;
+}
+
+option {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+option:hover {
+    background-color: orangered;
 }
 
 .header {
     width: 100vw;
     padding: 24px 62px;
-    /* backdrop-filter: blur(2px); */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,10 +42,9 @@ body {
     top: 0;
 }
 
-.header div {
-    padding: 0 12px;
+.header div:first-child {
     backdrop-filter: blur(1px);
-    border-radius: 12px;
+    border-bottom: 4px solid rgb(255, 69, 0);
     font-size: 32px;
 }
 
@@ -37,8 +56,9 @@ body {
 .header div + div a {
     color: black;
     text-decoration: none;
+    border-bottom: 4px solid white;
     font-size: 24px;
-    transition: 0.1s ease;
+    transition: 0.3s ease;
 }
 
 .header div + div a:hover {
@@ -47,26 +67,43 @@ body {
 
 .intro {
     padding-top: 85px;
+    display: flex;
 }
 
 .intro div {
     width: 100vw;
-    padding: 0 62px;
-    padding-top: 24px;
+    padding-left: 62px;
     border-bottom: 1px solid black;
+    display: flex;
 }
 
 .intro div p {
     width: 55vw;
     padding-right: 24px;
+    padding-bottom: 24px;
     border-right: 1px solid black;
     line-height: 32px;
     font-size: 22px;
     animation: fadein 0.3s linear;
 }
 
-.intro div p span {
-    border-bottom: 3px solid orangered;
+.blob1 {
+    width: 600px !important;
+    height: 200px;
+    padding: 0;
+    background-color: orangered;
+    border: none !important;
+    z-index: -1;
+    animation: fadein 0.3s linear, enterleft 0.3s linear;
+}
+
+.blob2 {
+    width: 400px !important;
+    height: 100vh;
+    padding: 0;
+    background-color: orangered;
+    z-index: -1;
+    animation: fadein 0.3s linear, entertop 0.3s linear;
 }
 
 .projects {
@@ -85,6 +122,7 @@ body {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 22px;
+    animation: enterleft 0.3s linear;
 }
 
 .project {
@@ -93,6 +131,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.project a,
+.project a:visited {
+    color: black;
+    text-decoration: none;
 }
 
 .project div {
@@ -110,6 +154,7 @@ body {
 
 .project div + div p {
     border-bottom: 3px solid white;
+    transition: 0.3s ease;
 }
 
 .project:hover div + div p {
@@ -119,8 +164,28 @@ body {
 @keyframes fadein {
     from {
         color: white;
+        opacity: 0;
     }
     to {
         color: black;
+        opacity: 1;
+    }
+}
+
+@keyframes enterleft {
+    from {
+        transform: translateX(20px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes entertop {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0px);
     }
 }
