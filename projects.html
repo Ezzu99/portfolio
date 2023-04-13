@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Projects</title>
+</head>
+<body>
+    <div class="header">
+        <div>Azan Ali</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="projects.html" style="border-bottom: 4px solid orangered;">Projects</a>
+            <a href="education.html">Education</a>
+        </div>
+    </div>
+    <div class="projects">
+        <label for="filter">Filter by Technology:</label>
+        <select id="filter">
+            <option value="all">All</option>
+            <option value="html-css">HTML/CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="react">ReactJS</option>
+            <option value="node">NodeJS</option>
+        </select>
+        <ul id="project-list">
+            <li class="project html-css javascript">
+                <div>1</div>
+                <div><p>Calculator</p></div>
+            </li>
+            <li class="project react">
+                <div>2</div>
+                <div><p>SafeHouse</p></div>
+            </li>
+            <li class="project html-css">
+                <div>3</div>
+                <div><p>Odin Landing Page</p></div>
+            </li>
+            <li class="project react node">
+                <div>4</div>
+                <div><p>Khudmadad</p></div>
+            </li>
+            <li class="project react">
+                <div>5</div>
+                <div><p>Safaidposh</p></div>
+            </li>
+            <li class="project html-css javascript">
+                <div>6</div>
+                <div><p>Weather App</p></div>
+            </li>
+            <li class="project react">
+                <div>7</div>
+                <div><p>ReactJS</p></div>
+            </li>
+            <li class="project node">
+                <div>8</div>
+                <div><p>NodeJS</p></div>
+            </li>
+        </ul>
+        <script>
+            const filter = document.querySelector('#filter');
+            const projectList = document.querySelector('#project-list');
+            const projects = projectList.querySelectorAll('.project');
+
+            filter.addEventListener('change', () => {
+                const value = filter.value;
+
+                projects.forEach(project => {
+                    if (project.classList.contains(value) || value === 'all') {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
