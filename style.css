@@ -8,12 +8,16 @@
 
 body {
     font-family: "Ubuntu";
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 ::selection {
     background-color: orangered;
     color: white;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 select {
@@ -40,15 +44,17 @@ option:hover {
     justify-content: space-between;
     position: fixed;
     top: 0;
+    z-index: 2;
 }
 
 .header div:first-child {
-    backdrop-filter: blur(1px);
+    background-color: white;
     border-bottom: 4px solid rgb(255, 69, 0);
     font-size: 32px;
 }
 
 .header div + div {
+    background-color: white;
     display: flex;
     gap: 22px;
 }
@@ -66,47 +72,48 @@ option:hover {
 }
 
 .intro {
-    padding-top: 85px;
-    display: flex;
+    width: 100vw;
+    margin-top: 85px;
 }
 
-.intro div {
-    width: 100vw;
-    padding-left: 62px;
+.intro h1 {
+    font-size: 52px;
+}
+
+.intro h2 {
+    color: orangered;
+}
+
+.intro > div {
     border-bottom: 1px solid black;
     display: flex;
 }
 
-.intro div p {
-    width: 55vw;
-    padding-right: 24px;
-    padding-bottom: 24px;
-    border-right: 1px solid black;
-    line-height: 32px;
-    font-size: 22px;
-    animation: fadein 0.3s linear;
-}
-
-.blob1 {
-    width: 600px !important;
-    height: 200px;
-    padding: 0;
+.intro .bg-image {
     background-color: orangered;
-    background-image: url("./images/3.png"),
-        linear-gradient(orangered, orangered);
     background-position: center;
     background-size: cover;
     background-blend-mode: luminosity;
-    border: none !important;
-    z-index: -1;
-    animation: fadein 0.3s linear, enterleft 0.3s linear;
 }
 
-.blob2 {
-    width: 400px !important;
+.intro-text {
+    padding: 72px;
+}
+
+.intro-text p {
+    font-size: 24px;
+}
+
+.blob {
+    width: 400px;
     height: 100vh;
     padding: 0;
     background-color: orangered;
+    display: flex;
+    align-items: stretch;
+    position: absolute;
+    left: 0;
+    bottom: 0;
     z-index: -1;
     animation: fadein 0.3s linear, entertop 0.3s linear;
 }
@@ -114,8 +121,8 @@ option:hover {
 .projects {
     padding: 0 62px;
     padding-top: 85px;
+    background-color: white;
     border-bottom: 1px solid black;
-    animation: fadein 0.3s linear;
 }
 
 #project-list {
@@ -136,6 +143,8 @@ option:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    animation: fadein 0.3s linear;
 }
 
 .project a,
@@ -172,6 +181,22 @@ option:hover {
     border-bottom: 3px solid orangered;
 }
 
+.live::after {
+    content: "live";
+    width: 50px;
+    height: 20px;
+    color: orangered;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fadein {
+    animation: fadein 0.3s linear;
+}
+
 @keyframes fadein {
     from {
         color: white;
@@ -183,6 +208,10 @@ option:hover {
     }
 }
 
+.enterleft {
+    animation: enterleft 0.3s linear;
+}
+
 @keyframes enterleft {
     from {
         transform: translateX(20px);
@@ -190,6 +219,10 @@ option:hover {
     to {
         transform: translateX(0px);
     }
+}
+
+.entertop {
+    animation: entertop 0.3s linear;
 }
 
 @keyframes entertop {
