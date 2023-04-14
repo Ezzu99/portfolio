@@ -39,6 +39,8 @@ option:hover {
 .header {
     width: 100vw;
     padding: 24px 62px;
+    background-color: white;
+    border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -48,13 +50,11 @@ option:hover {
 }
 
 .header div:first-child {
-    background-color: white;
     border-bottom: 4px solid rgb(255, 69, 0);
     font-size: 32px;
 }
 
 .header div + div {
-    background-color: white;
     display: flex;
     gap: 22px;
 }
@@ -120,7 +120,7 @@ option:hover {
 
 .projects {
     padding: 0 62px;
-    padding-top: 85px;
+    padding-top: 120px;
     background-color: white;
     border-bottom: 1px solid black;
 }
