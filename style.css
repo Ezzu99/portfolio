@@ -109,6 +109,7 @@ option:hover {
     height: 100vh;
     padding: 0;
     background-color: orangered;
+    border-right: 1px solid black;
     display: flex;
     align-items: stretch;
     position: absolute;
