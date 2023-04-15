@@ -120,7 +120,8 @@ option:hover {
 }
 
 .projects,
-.education {
+.education,
+.certificates {
     background-color: white;
     border-bottom: 1px solid black;
 }
@@ -130,27 +131,39 @@ option:hover {
     padding-top: 120px;
 }
 
-.education {
+.education,
+.certificates {
     padding-top: 89.33px;
 }
 
 #project-list,
-#course-list {
+#course-list,
+#certificate-list {
     margin: 22px 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
+}
+
+#project-list,
+#certificate-list {
+    align-items: center;
+    justify-content: center;
     animation: enterleft 0.5s linear;
 }
 
 #project-list {
-    align-items: center;
-    justify-content: center;
+    animation: enterleft 0.5s linear;
 }
 
-.project {
-    width: 200px;
+#certificate-list {
+    flex-direction: column;
+    animation: entertop 0.5s linear;
+}
+
+.project,
+.certificate {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -159,28 +172,46 @@ option:hover {
     animation: fadein 0.3s linear;
 }
 
+.project {
+    width: 200px;
+}
+
+.certificate {
+    width: 500px;
+}
+
 .project a,
 .project a:visited {
     color: black;
     text-decoration: none;
 }
 
-.project div {
-    height: 100px;
+.project div,
+.certificate div {
     border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.project div {
+    height: 100px;
+}
+
+.certificate div {
+    height: 150px;
+}
+
 .project div:first-child,
-.course div:first-child {
+.course div:first-child,
+.certificate div:first-child {
     background-position: center;
     background-size: cover;
     background-blend-mode: luminosity;
 }
 
-.project div + div {
+.project div + div,
+.certificate div + div {
     height: 50px;
     border-bottom: none;
 }
