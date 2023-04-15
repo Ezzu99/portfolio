@@ -119,23 +119,34 @@ option:hover {
     animation: fadein 0.3s linear, entertop 0.3s linear;
 }
 
-.projects {
-    padding: 0 62px;
-    padding-top: 120px;
+.projects,
+.education {
     background-color: white;
     border-bottom: 1px solid black;
 }
 
-#project-list {
-    margin-top: 32px;
-    margin-bottom: 22px;
+.projects {
+    padding: 0 62px;
+    padding-top: 120px;
+}
+
+.education {
+    padding-top: 89.33px;
+}
+
+#project-list,
+#course-list {
+    margin: 22px 0;
     list-style: none;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 22px;
     animation: enterleft 0.5s linear;
+}
+
+#project-list {
+    align-items: center;
+    justify-content: center;
 }
 
 .project {
@@ -162,7 +173,8 @@ option:hover {
     justify-content: center;
 }
 
-.project div:first-child {
+.project div:first-child,
+.course div:first-child {
     background-position: center;
     background-size: cover;
     background-blend-mode: luminosity;
@@ -180,6 +192,38 @@ option:hover {
 
 .project:hover div + div p {
     border-bottom: 3px solid orangered;
+}
+
+#course-list > div,
+#course-list > div > div {
+    display: flex;
+}
+
+#course-list > div > div:first-child {
+    padding-left: 22px;
+}
+
+#course-list > div > div {
+    gap: 22px;
+    animation: slideleft 40s linear infinite;
+}
+
+#course-list p {
+    white-space: pre;
+}
+
+.course {
+    border: 1px solid black;
+    display: flex;
+}
+
+.course div:first-child {
+    width: 100px;
+    border-right: 1px solid black;
+}
+
+.course div {
+    padding: 16px 18px;
 }
 
 .live::after {
@@ -232,5 +276,14 @@ option:hover {
     }
     to {
         transform: translateY(0px);
+    }
+}
+
+@keyframes slideleft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
